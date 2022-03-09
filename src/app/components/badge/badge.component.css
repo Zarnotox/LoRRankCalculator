@@ -1,0 +1,26 @@
+.text {
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.badge {
+    margin-top: -3em;
+    margin-bottom: -3em;
+}
+
+.progress {
+    position: relative;
+}
+
+.value {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2.5em;
+    z-index: 10;
+}
+
+.self {
+    margin-bottom: 1em;
+}
