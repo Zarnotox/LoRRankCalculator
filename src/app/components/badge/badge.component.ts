@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Rank} from "../../shared/enums/rank.enum";
+import {Division} from "../../shared/enums/division.enum";
+import {RankCalculateService} from "../../core/services/rank-calculate.service";
+import {Rank} from "../../shared/models/rank.model";
 
 @Component({
     selector: 'app-badge',
@@ -7,21 +9,25 @@ import {Rank} from "../../shared/enums/rank.enum";
     styleUrls: ['./badge.component.css']
 })
 export class BadgeComponent implements OnInit {
-    rank: Rank = Rank.MASTER;
-    index = 0;
-    subRank = 'IV';
-    test = true;
-    amount = 40;
+    division: Division = Division.MASTER;
+    subDivision = 'IV';
+    lp = 40;
 
-    constructor() {
+    constructor(private rankCalculateService: RankCalculateService) {
     }
 
     ngOnInit(): void {
+        this.rankCalculateService.getEndRank().subscribe(rank => {
+            this.division = rank.division;
+            this.lp = rank.lp
+            this.subDivision = this.getSubDivisionText(rank);
+        })
     }
 
-    click() {
-        this.test = !this.test;
-        this.amount = this.amount > 40 ? 40 : 60;
+    private getSubDivisionText(rank: Rank) {
+        if(this.division == Division.MASTER) {
+            return '';
+        }
+        return Rank.getSubDivisionText(rank.subDivision);
     }
-
 }

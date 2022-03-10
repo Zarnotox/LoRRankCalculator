@@ -67,3 +67,7 @@
 .light {
     color: var(--buttonTextColor);
 }
+
+.p-progressbar-determinate .p-progressbar-value-animate {
+    transition: width 0.3s cubic-bezier(.45,.05,.55,.95) !important;
+}

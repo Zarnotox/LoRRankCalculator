@@ -1,18 +1,27 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
     selector: 'app-games',
     templateUrl: './games.component.html',
     styleUrls: ['./games.component.css']
 })
-export class GamesComponent implements OnInit {
+export class GamesComponent{
     @Input()
     isWin = true;
 
-    constructor() {
+    amount: number = 0;
+
+    @Output()
+    amountChanged = new EventEmitter<number>();
+
+
+    add(add: number) {
+        this.amount += add;
+        this.amountChanged.next(this.amount);
     }
 
-    ngOnInit(): void {
+    subtract(subtract: number) {
+        this.amount = Math.max(0, this.amount - subtract);
+        this.amountChanged.next(this.amount);
     }
-
 }

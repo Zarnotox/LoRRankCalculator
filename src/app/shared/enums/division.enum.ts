@@ -1,4 +1,4 @@
-export enum Rank {
+export enum Division {
     IRON = 'IRON',
     BRONZE = 'BRONZE',
     SILVER = 'SILVER',

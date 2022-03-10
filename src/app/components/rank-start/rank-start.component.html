@@ -3,11 +3,12 @@
         Rank start
     </div>
     <div class="col-8 flex align-items-center justify-content-center">
-        <app-rank-select></app-rank-select>
+        <app-rank-select (divisionChanged)="divisionChanged($event)"
+                         (subDivisionChanged)="subDivisionChanged($event)"></app-rank-select>
     </div>
     <div class="col-4 flex align-items-center justify-content-center">
         <p class="lp">LP</p>
-        <p-inputNumber [min]="0" [max]="99" [maxlength]="2"></p-inputNumber>
+        <p-inputNumber [min]="0" [max]="99" [maxlength]="2" (onInput)="lpChanged($event.value)"></p-inputNumber>
     </div>
 
 </div>

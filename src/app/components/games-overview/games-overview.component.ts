@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./games-overview.component.css']
 })
 export class GamesOverviewComponent implements OnInit {
-    gamesAmount: number = 100;
+    gamesAmount: number = 0;
 
     constructor() {
     }
@@ -14,4 +14,7 @@ export class GamesOverviewComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    totalChanged(amount: number) {
+        this.gamesAmount = amount;
+    }
 }

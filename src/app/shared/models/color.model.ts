@@ -21,10 +21,14 @@ export class Color {
     easeColor(color: Color, percentage: number) {
         percentage = Math.max(0, Math.min(percentage, 1))
 
-        const r = this.r + (color.r - this.r) * percentage;
-        const g = this.g + (color.g - this.g) * percentage;
-        const b = this.b + (color.b - this.b) * percentage;
+        const r = this.r + (color.r - this.r) * this.ease(percentage);
+        const g = this.g + (color.g - this.g) * this.ease(percentage);
+        const b = this.b + (color.b - this.b) * this.ease(percentage);
 
         return new Color(r, g, b);
+    }
+
+    private ease(x: number): number {
+        return -(Math.cos(Math.PI * x) - 1) / 2;
     }
 }
