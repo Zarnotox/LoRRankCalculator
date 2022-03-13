@@ -18,7 +18,7 @@ export class RankCalculateService {
         this.startRank.next(lowestRank);
         this.winsLosses.next([]);
         this.rankDeltas = new Map([
-            [Division.IRON, new Delta(24, 0)],
+            [Division.IRON, new Delta(28, 0)],
             [Division.BRONZE, new Delta(24, 12)],
             [Division.SILVER, new Delta(22, 14)],
             [Division.GOLD, new Delta(20, 16)],
